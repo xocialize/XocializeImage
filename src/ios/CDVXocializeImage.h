@@ -4,22 +4,26 @@
 //
 //  Created by Dustin Nielson on 5/26/14.
 //
-//  Based on:
-//
-//  ALAssetsLibrary category to handle a custom photo album
-//
-//  Created by Marin Todorov on 10/26/11.
-//  Copyright (c) 2011 Marin Todorov. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Cordova/CDV.h>
 
-typedef void(^SaveImageCompletion)(NSError* error);
+//typedef void(^SaveImageCompletion)(NSError* error);
 
-@interface ALAssetsLibrary(CustomPhotoAlbum)
+@interface CDVXocializeImage : CDVPlugin {
+    
+    NSString *_callback;
+    UIImage *_image;
+    NSString *_albumName;
+    
+}
 
--(void)saveImage:(UIImage*)image toAlbum:(NSString*)albumName withCompletionBlock:(SaveImageCompletion)completionBlock;
--(void)addAssetURL:(NSURL*)assetURL toAlbum:(NSString*)albumName withCompletionBlock:(SaveImageCompletion)completionBlock;
+- (void) CDVSaveImage:(CDVInvokedUrlCommand *)command;
+
+//-(void)saveImage:(UIImage*)image toAlbum:(NSString*)albumName withCompletionBlock:(SaveImageCompletion)completionBlock;
+
+//-(void)addAssetURL:(NSURL*)assetURL toAlbum:(NSString*)albumName withCompletionBlock:(SaveImageCompletion)completionBlock;
 
 @end
