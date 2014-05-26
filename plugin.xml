@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="com.xocialize.cordova.xocializeimage" version="1.0.0">
+	<name>XocializeImage</name>
+	<description>Helper for working with the IOS image gallery</description>
+	<license>Apache 2.0</license>
+	<keywords>cordova,photo,gallery</keywords>
+	<js-module src="www/xocializeimage.js" name="xocializeimage">
+		<clobbers target="window.plugins.xocializeimage" />
+	</js-module>
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+	<platform name="ios">
+        <framework src="Foundation.framework" />
+        <framework src="AssetsLibrary.framework" />
+        <config-file target="config.xml" parent="/*">
+			<feature name="XocializeImage">
+				<param name="ios-package" value="CDVXocializeImage"/>
+			</feature>
+		</config-file>
+		<header-file src="src/ios/CDVXocializeImage.h" />
+		<source-file src="src/ios/CDVXocializeImage.m" />
+	</platform>
+</plugin>
